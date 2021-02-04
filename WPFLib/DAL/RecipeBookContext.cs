@@ -11,18 +11,9 @@ namespace WPFLib.DAL
 {
     public class RecipeBookContext : DbContext
     {
-        public RecipeBookContext() : base("RecipeBookContext")
-        {
-        }
-
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<DishType> DishTypes { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
     }
 }
