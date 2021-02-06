@@ -2,6 +2,7 @@
 using System;
 using WPFLib.Model;
 using WPFLib.DAL;
+using System.Linq;
 
 namespace WPFTest
 {
@@ -11,16 +12,7 @@ namespace WPFTest
         [TestMethod]
         public void TestMethod1()
         {
-            RecipeBookContext context = new RecipeBookContext();
-
-            var pt = new ProductType { Name = "Owoc" };
-
-            context.ProductTypes.Add(pt);
-            context.SaveChanges();
-
-            var fromDb = context.ProductTypes.Find(1);
-
-            Assert.AreEqual(pt.Name, fromDb.Name);
+            
         }
     }
 }

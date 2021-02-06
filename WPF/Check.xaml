@@ -15,17 +15,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
         <!-- Labels -->
-        <Label Grid.Row="0" Grid.Column="0" >Lista przepisów</Label>
-        <Label Grid.Row="0" Grid.Column="1" >Opis przepisu</Label>
-        <Label Grid.Row="0" Grid.Column="2" >Składniki przepisu</Label>
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource checkLabel}">Lista przepisów</Label>
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource checkLabel}">Opis przepisu</Label>
+        <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource checkLabel}">Składniki przepisu</Label>
         
         <!-- List boxes -->
         <ListBox Grid.Row="1" Grid.Column="0" Style="{StaticResource checkListBox}"/>
-
+        <ListBox Grid.Row="1" Grid.Column="1" Style="{StaticResource checkListBox}"/>
+        <ListBox Grid.Row="1" Grid.Column="2" Style="{StaticResource checkListBox}"/>
     </Grid>
 </Page>

@@ -17,9 +17,15 @@
         <Style TargetType="{x:Type TextBox}" x:Key="checkTextBox">
             <Setter Property="Margin" Value="10"/>
         </Style>
-        
+
         <Style TargetType="{x:Type ListBox}" x:Key="checkListBox">
             <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style TargetType="{x:Type Label}" x:Key="checkLabel">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </Application.Resources>
 </Application>
