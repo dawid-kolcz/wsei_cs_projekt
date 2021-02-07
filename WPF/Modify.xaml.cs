@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace WPF
 {
     /// <summary>
-    /// Logika interakcji dla klasy Home.xaml
+    /// Logika interakcji dla klasy AddItem.xaml
     /// </summary>
-    public partial class Home : Page
+    public partial class AddItem : Page
     {
-        public Home()
+        public AddItem()
         {
             InitializeComponent();
-        }
-
-        private void Check_Click(object sender, RoutedEventArgs e)
-        {
-            Check check = new Check();
-            this.NavigationService.Navigate(check);
-        }
-        private void Modify_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
