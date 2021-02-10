@@ -19,5 +19,10 @@ namespace WPFLib.Model
         [Required]
         public virtual ProductType ProductType { get; set; }
         public virtual ICollection<Dish> Dish { get; set; }
-}
+
+        public override string ToString()
+        {
+            return $"{Name} - {ProductType.Type}";
+        }
+    }
 }

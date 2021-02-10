@@ -13,7 +13,6 @@ namespace WPF
         {
             InitializeComponent();
             Database.SetInitializer(new RecipeBookInitializer());
-
         }
     }
 }

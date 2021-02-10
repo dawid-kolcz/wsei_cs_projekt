@@ -26,27 +26,8 @@
         
         <!-- List boxes -->
         <ListBox Name="recipeList" Grid.Row="1" Grid.Column="0" Style="{StaticResource checkListBox}"
-                 SelectionChanged="recipeList_SelectionChanged">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <!--<ListBox Name="descriptionList" Grid.Row="1" Grid.Column="1" Style="{StaticResource checkListBox}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Description}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>-->
-        <ListBox Name="producsList" Grid.Row="1" Grid.Column="2" Style="{StaticResource checkListBox}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                 SelectionChanged="recipeList_SelectionChanged"/>
+        <ListBox Name="producsList" Grid.Row="1" Grid.Column="2" Style="{StaticResource checkListBox}"/>
         <TextBlock Name="descriptionList" Grid.Row="1" Grid.Column="1" Margin="10" TextWrapping="Wrap"/>
     </Grid>
 </Page>

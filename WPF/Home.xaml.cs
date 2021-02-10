@@ -25,18 +25,18 @@ namespace WPF
         public Home()
         {
             InitializeComponent();
-            context = new RecipeBookContext();
+            this.context = new RecipeBookContext();
         }
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
-
             Check check = new Check(context);
             this.NavigationService.Navigate(check);
         }
         private void Modify_Click(object sender, RoutedEventArgs e)
         {
-
+            Modify modify = new Modify(context);
+            this.NavigationService.Navigate(modify);
         }
     }
 }
