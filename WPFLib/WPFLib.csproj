@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\RecipeBookContext.cs" />
+    <Compile Include="DAL\RecipeBookInitializer.cs" />
     <Compile Include="Model\Dish.cs" />
     <Compile Include="Model\DishType.cs" />
     <Compile Include="Model\Product.cs" />

@@ -1,29 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using WPFLib.Model;
-using WPFLib.DAL;
-using System.Linq;
-using System.Data.Entity;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Entity;
+using WPFLib.Model;
 
-namespace WPFTest
+namespace WPFLib.DAL
 {
-    [TestClass]
-    public class UnitTest1
+    public class RecipeBookInitializer : CreateDatabaseIfNotExists<RecipeBookContext>
     {
-        RecipeBookContext context;
-        List<ProductType> productTypes;
-        List<DishType> dishTypes;
-        List<Product> products;
-        public List<Dish> recipes;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            Database.SetInitializer(new RecipeBookInitializer());
-            context = new RecipeBookContext();
-
-            productTypes = new List<ProductType>
+        protected override void Seed(RecipeBookContext context)
+        {          
+            var productTypes = new List<ProductType>
             {
                 new ProductType {Type = "Owoc"},
                 new ProductType {Type = "Warzywo"},
@@ -35,16 +24,20 @@ namespace WPFTest
                 new ProductType {Type = "Wędlina"},
                 new ProductType {Type = "Olej"}
             };
+            productTypes.ForEach(pt => context.ProductTypes.Add(pt));
+            context.SaveChanges();
 
-            dishTypes = new List<DishType>
+            var dishTypes = new List<DishType>
             {
                 new DishType {Type = "Wegetariańskie"},
                 new DishType {Type = "Wegańskie"},
                 new DishType {Type = "Bez glutenowe"},
                 new DishType {Type = "Pikantne"}
             };
+            dishTypes.ForEach(dt => context.DishTypes.Add(dt));
+            context.SaveChanges();
 
-            products = new List<Product>
+            var products = new List<Product>
             {
                 new Product{Name = "Jajka",           ProductType = productTypes[5]},
                 new Product{Name = "Mąka",            ProductType = productTypes[6]},
@@ -61,27 +54,19 @@ namespace WPFTest
                 new Product{Name = "Parmezan",        ProductType = productTypes[5]},
                 new Product{Name = "Czosnek",         ProductType = productTypes[1]}
             };
+            products.ForEach(p => context.Products.Add(p));
+            context.SaveChanges();
 
-            recipes = new List<Dish>
+            var dish = new List<Dish>
             {
-                new Dish{Name = "Jajecznica", Description = "Smażony mix jajek na maśle z solą i pieprzem.",
+                new Dish{Name = "Jajecznica", Description = "Smażony mix jajek na maśle z solą i pieprzem.", 
                     DishType = dishTypes[0],
                     Products = {products[0], products[2], products[5], products[6] } },
                 new Dish{Name = "Fusilli aglio e olio", Description = "Makaron typu fusilli z oliwa i czosnkiem. Po wyłożeniu należy posypać tartym parmezanem.",
                     DishType = dishTypes[1],
                     Products = {products[5], products[6], products[7], products[11], products[12], products[13] } }
             };
-
-        }
-        [TestMethod]
-        public void AddToDatabase()
-        {
-            var dish = context.Dishes.FirstOrDefault(d => d.Name == "Jajecznica");
-
-            
-            Console.WriteLine(dish.Name);
-            dish.Products.ToList().ForEach(p => Console.WriteLine($"{p.Name} - {p.ProductType.Type}"));
-            //Dish d = new Dish { Name = "Test", Products = { }, DishType = 1 };
+            dish.ForEach(d => context.Dishes.Add(d));
         }
     }
 }

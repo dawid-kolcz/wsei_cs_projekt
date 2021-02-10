@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFLib.DAL;
+using WPFLib.Model;
 
 namespace WPF
 {
@@ -20,9 +22,21 @@ namespace WPF
     /// </summary>
     public partial class Check : Page
     {
-        public Check()
+        private RecipeBookContext context;
+
+        public Check(RecipeBookContext context) : base()
         {
             InitializeComponent();
+            this.context = context;
+
+            recipeList.ItemsSource = context.Dishes.ToList();
         }
+
+        private void recipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            descriptionList.Text = (recipeList.SelectedItem as Dish).Description;
+            producsList.ItemsSource = (recipeList.SelectedItem as Dish).Products;
+        }
+
     }
 }

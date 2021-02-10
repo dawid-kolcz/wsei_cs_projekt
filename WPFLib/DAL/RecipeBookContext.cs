@@ -15,5 +15,11 @@ namespace WPFLib.DAL
         public DbSet<DishType> DishTypes { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }
