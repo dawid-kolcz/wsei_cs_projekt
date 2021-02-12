@@ -19,17 +19,22 @@ namespace WPF
 {
     /// <summary>
     /// Logika interakcji dla klasy Check.xaml
+    /// Sprawdzanie wpisanych przepisow w ksiazce.
     /// </summary>
     public partial class Check : Page
     {
-        private RecipeBookContext context;
+        private RecipeBookContext _context;
 
+        /// <summary>
+        /// Konstruktor dla okna Sprawdz przepis, wymaga bazy danych <paramref name="context"/>
+        /// </summary>
+        /// <param name="context"></param>
         public Check(RecipeBookContext context) : base()
         {
             InitializeComponent();
-            this.context = context;
+            this._context = context;
 
-            recipeList.ItemsSource = context.Dishes.ToList();
+            recipeList.ItemsSource = _context.Dishes.ToList();
         }
 
         private void recipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)

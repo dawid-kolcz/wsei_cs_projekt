@@ -3,8 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WPFLib.Model
 {
+    /// <summary>
+    /// Klasa w ktorej przechowujemy gotowy przepis.
+    /// Zapisywana jet za pomoca Entity Framework 6 w bazie danych
+    /// </summary>
     public class Dish
     {
+        /// <summary>
+        /// Konstruktor tworzy wymagane przez klasy listy.
+        /// </summary>
         public Dish()
         {
             Products = new HashSet<Product>();

@@ -18,6 +18,8 @@ namespace WPF
 {
     /// <summary>
     /// Logika interakcji dla klasy Home.xaml
+    /// Strona glowna aplikacji.
+    /// Jest odpowiedzialna za wyswietlanie kolejnych stron i przekazanie referencji do bazny danych.
     /// </summary>
     public partial class Home : Page
     {

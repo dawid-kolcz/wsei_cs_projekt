@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace WPFLib.Model
 {
+    /// <summary>
+    /// Klasa ktora przechowuje produkty z ktorych sklada sie przepis.
+    /// </summary>
     public class Product
     {
         public Product()

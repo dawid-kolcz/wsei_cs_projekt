@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WPFLib.Model
 {
+    /// <summary>
+    /// Klasa przechowujaca typ potrawy.
+    /// </summary>
     public class DishType
     {
         public DishType()
@@ -16,5 +19,10 @@ namespace WPFLib.Model
         public int DishID { get; set; }
         public string Type { get; set; }
         public virtual ICollection<Dish> Dish { get; set; }
+
+        public override string ToString()
+        {
+            return Type;
+        }
     }
 }

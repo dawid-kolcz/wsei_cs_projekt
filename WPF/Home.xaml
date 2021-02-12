@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="Przepisy">
 
     <Grid>
@@ -23,6 +23,8 @@
         <!-- Buttons -->
         <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource homeButton}" Click="Check_Click">Przegladaj przepisy</Button>
         <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource homeButton}" Click="Modify_Click">Modyfikuj przepisy</Button>
+        <Label Content="Książka kucharska&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Center" 
+               Grid.Row="1" VerticalAlignment="Center"/>
 
     </Grid>
 </Page>

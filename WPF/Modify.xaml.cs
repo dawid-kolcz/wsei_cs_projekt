@@ -19,6 +19,7 @@ namespace WPF
 {
     /// <summary>
     /// Logika interakcji dla klasy Modify.xaml
+    /// Dodawanie usuwanie przepisow, produktow.
     /// </summary>
     public partial class Modify : Page
     {
@@ -32,6 +33,7 @@ namespace WPF
             productTypeComboBox.ItemsSource = _context.ProductTypes.ToList();
             recipeList.ItemsSource = _context.Dishes.ToList();
             productList.ItemsSource = _context.Products.ToList();
+            dishTypeComboBox.ItemsSource = _context.DishTypes.ToList();
         }
 
         private void addProductBtn_Click(object sender, RoutedEventArgs e)
@@ -69,20 +71,22 @@ namespace WPF
 
         private void addRecipeBtn_Click(object sender, RoutedEventArgs e)
         {
-            // Add dish type combobox
-            // var dishType = dishTypeComboBox.SelectedItem as DishType;
             var products = new List<Product>();
             foreach (var item in newRecipeProductList.Items)
             {
                 products.Add(item as Product);
             }
 
-            var desc = descriptonTB.Text;
             var recipeName = recipeNameTB.Text;
+            var desc = descriptonTB.Text;
+            var dishType = dishTypeComboBox.SelectedItem as DishType;
+
             var dish = new Dish { Name = recipeName, Products = products, 
-                Description = desc, DishType = _context.DishTypes.Find(1)};
+                Description = desc, DishType = dishType};
+
             _context.Dishes.Add(dish);
             _context.SaveChanges();
+
             productList.ItemsSource = _context.Dishes.ToList();
         }
 
